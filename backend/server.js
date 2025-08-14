@@ -1,20 +1,3 @@
-// const express = require('express');
-// const cors = require('cors');
-// const bodyParser = require('body-parser');
-// const ticketRoutes = require('./routes/ticketRoutes');
-// require('dotenv').config();
-
-// const app = express();
-// app.use(cors());
-// app.use(bodyParser.json());
-
-// app.use('/api/tickets', ticketRoutes);
-
-// const PORT = process.env.PORT || 5000;
-// app.listen(PORT, () => {
-//   console.log(`Server running on port ${PORT}`);
-// });
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -22,7 +5,18 @@ const bookingRoutes = require("./routes/bookingRoutes");
 require("dotenv").config();
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "http://localhost:5174",
+      "https://malangdandiya.netlify.app",
+      "http://3.110.77.163:3000",
+    ], // Adjust this to your frontend's URL
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+  })
+);
 app.use(bodyParser.json());
 app.use("/api", bookingRoutes);
 
