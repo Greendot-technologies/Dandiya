@@ -9,8 +9,8 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "http://localhost:5174",
-      "https://malangdandiya.netlify.app",
+      "http://localhost:5173",
+      "https://malangdandiya.netlify.app/",
       "http://3.110.77.163:3000",
     ], // Adjust this to your frontend's URL
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",

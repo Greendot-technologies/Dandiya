@@ -10,20 +10,6 @@ const razorpay = new Razorpay({
   key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
-// 1️⃣ Booking Date + Ticket Count
-// exports.createBooking = async (req, res) => {
-//   const { booking_date, num_tickets } = req.body;
-//   try {
-//     const result = await pool.query(
-//       `INSERT INTO bookings (booking_date, num_tickets) VALUES ($1, $2) RETURNING *`,
-//       [booking_date, num_tickets]
-//     );
-//     res.status(201).json({ success: true, booking: result.rows[0] });
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json({ error: "Failed to create booking" });
-//   }
-// };
 
 // 1️⃣ Booking Date + Ticket Count + Pass Type
 
@@ -199,11 +185,6 @@ exports.getQRDetails = async (req, res) => {
 
     const qrDetails = result.rows[0];
 
-    // Check if the QR code is expired
-    // const currentTime = new Date();
-    // if (currentTime > new Date(qrDetails.expiry_date)) {
-    //   return res.status(400).json({ error: "QR code has expired" });
-    // }
 
     // Check if the QR code is expired (valid for whole event day)
     const currentTime = new Date();
