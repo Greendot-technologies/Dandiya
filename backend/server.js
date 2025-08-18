@@ -5,18 +5,14 @@ const bookingRoutes = require("./routes/bookingRoutes");
 require("dotenv").config();
 
 const app = express();
-app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "http://localhost:5173",
-      "https://malangdandiya.netlify.app/",
-      "http://3.110.77.163:3000",
-    ], // Adjust this to your frontend's URL
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: ["http://localhost:3000"], // Adjust this to your frontend's URL
+//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//     credentials: true,
+//   })
+// );
+app.use(cors());
 app.use(bodyParser.json());
 app.use("/api", bookingRoutes);
 

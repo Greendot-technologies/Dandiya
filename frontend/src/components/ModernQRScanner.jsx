@@ -8,9 +8,9 @@ const ModernQRScanner = () => {
   const [error, setError] = useState("");
   const [scanning, setScanning] = useState(false);
 
-  // const backendURL = "http://localhost:5000";
+  const backendURL = "http://localhost:5000";
     // const backendURL = "https://malang-ras-dandiya.onrender.com";
-  const backendURL = "http://3.110.77.163:5000";
+  // const backendURL = "http://3.110.77.163:5000";
 
   const handleScanQR = async () => {
     if (!qrData.trim()) {
